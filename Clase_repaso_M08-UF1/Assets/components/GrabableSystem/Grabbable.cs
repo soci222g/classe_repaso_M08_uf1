@@ -7,19 +7,12 @@ using UnityEngine.Events;
 public class Grabbable : MonoBehaviour
 {
     public enum GrabMode { FollowParentTeleport, followParentSmooth, SetOnParent, SenOnParentZeroPosition}
-
-    [System.Flags]
-    public enum GrabbableType
-    {
-        Weapon = 1, //000001
-        Consumible = 2, //000010
-        Throweable = 4 //000100
-    }
+    
 
     [Header("Setup")]
     [SerializeField] private GrabMode _grabMode = GrabMode.FollowParentTeleport;
-    [SerializeField, Min(0)] private float _smoothTime = 0.25f;
-    [SerializeField] public GrabbableType _grabbableType = GrabbableType.Consumible;
+    [SerializeField, Min(0)] private float _smoothTime = 0.25f;   
+    [SerializeField] public List<ObjectType> objectTypes = new();
 
     [Header("Event")]
     public UnityEvent<GameObject, GameObject> OnStartGrab;

@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Interact : MonoBehaviour
 {
     [Header("debug Support")]
@@ -14,7 +15,6 @@ public class Interact : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private float _radiusRange = 0.5f;
     public float RadiudRange { get => _radiusRange; }
-
 
     private IEnumerator _chackBreackDistanceCorroutine;
 
