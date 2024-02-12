@@ -56,13 +56,16 @@ public class ApiHelper
 
         yield return request.SendWebRequest();
 
-        if(request.result != UnityWebRequest.Result.Success)
+        if (request.result != UnityWebRequest.Result.Success)
         {
             onFailure(new Exception(request.error));
+            yield break;
         }
-       
+        else
+        {
+
             DownloadHandlerTexture handel = (DownloadHandlerTexture)request.downloadHandler;
             onSuccess(handel.texture);
-        
+        }
     }
 }

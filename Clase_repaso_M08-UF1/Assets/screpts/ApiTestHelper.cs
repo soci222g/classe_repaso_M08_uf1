@@ -84,10 +84,11 @@ public class ApiTestHelper : MonoBehaviour
             resultField.text += " " + type.type.name;
         }
 
-        resultField.text += "<br>ImageURL:<br>" + result.sprites.front_default;
-
         IEnumerator imagApiCall = ApiHelper.GetTexture(result.sprites.front_default, OnImagSuccess, onImagFeilure);
         StartCoroutine(imagApiCall);
+
+        resultField.text += "<br>ImageURL:<br>" + result.sprites.front_default;
+
 
     }
     private void onImagFeilure(Exception exeption)
@@ -98,8 +99,10 @@ public class ApiTestHelper : MonoBehaviour
 
     private void OnImagSuccess(Texture texture)
     {
-
+        Debug.Log("proba1");
+        imageField.color = Color.white;
         imageField.texture = texture;
+        Debug.Log("proba1");
     }
 
 }
