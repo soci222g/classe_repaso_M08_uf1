@@ -38,6 +38,8 @@ public class ApiTestHelper : MonoBehaviour
     [Serializable]
     public class Pokemon
     {
+        [Unity.Serialization.FormerName("Base")]
+        public sbyte OtraCosaQueNoEsBase;
         public string name;
         public List<SlotType> types;
         public Sprites sprites;

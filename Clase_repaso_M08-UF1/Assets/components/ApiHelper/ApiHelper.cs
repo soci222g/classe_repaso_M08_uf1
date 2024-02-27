@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Serialization.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -38,7 +39,8 @@ public class ApiHelper
         {
             try
             {
-                T result = JsonUtility.FromJson<T>(jsonText);
+                T result = JsonSerialization.FromJson<T>(jsonText);
+                //T result = JsonUtility.FromJson<T>(jsonText);
                 onSuccess(result);
             }
             catch (Exception e)
